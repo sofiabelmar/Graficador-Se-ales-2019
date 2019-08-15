@@ -23,11 +23,7 @@ namespace GraficadorDeSeñales
         public MainWindow()
         {
             InitializeComponent();
-            plnGrafica.Points.Add(new Point(0, 10));
-            plnGrafica.Points.Add(new Point(20, 15));
-            plnGrafica.Points.Add(new Point(100, 50));
-            plnGrafica.Points.Add(new Point(200, 1));
-            plnGrafica.Points.Add(new Point(1000, 70));
+            
         }
 
         private void BtnGraficar_Click(object sender, RoutedEventArgs e)
@@ -46,7 +42,7 @@ namespace GraficadorDeSeñales
             plnGrafica.Points.Clear();
             for(double i = tiempoInicial; i<=tiempoFinal; i += periodoMuestreo)
             {
-
+                plnGrafica.Points.Add(new Point(i, señal.evaluar(i)));  
             }
         }
     }
