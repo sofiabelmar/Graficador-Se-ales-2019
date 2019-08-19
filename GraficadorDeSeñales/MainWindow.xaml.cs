@@ -40,9 +40,9 @@ namespace GraficadorDeSeñales
             double periodoMuestreo = 1 / frecuenciaDeMuestreo;
 
             plnGrafica.Points.Clear();
-            for(double i = tiempoInicial; i<=tiempoFinal; i += periodoMuestreo)
+            for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestreo)
             {
-                plnGrafica.Points.Add(new Point(i, señal.evaluar(i)));  
+                plnGrafica.Points.Add(new Point(i * srcGrafica.Width, -1 * (señal.evaluar(i) * srcGrafica.Height/2.0)));  
             }
         }
     }
