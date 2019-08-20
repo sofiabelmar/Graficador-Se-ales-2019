@@ -42,8 +42,14 @@ namespace GraficadorDeSeñales
             plnGrafica.Points.Clear();
             for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestreo)
             {
-                plnGrafica.Points.Add(new Point(i * srcGrafica.Width, -1 * (señal.evaluar(i) * srcGrafica.Height/2.0)));  
+                plnGrafica.Points.Add(adaptarCoordenadas(i, señal.evaluar(i)));
             }
+        }
+
+        public Point adaptarCoordenadas(double x, double y)
+        {
+
+            return new Point(x*srcGrafica.Width, (-1 * ( y * ((srcGrafica.Height/2.0) -25))) + (srcGrafica.Height/2));
         }
     }
 }
