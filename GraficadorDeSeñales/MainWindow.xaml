@@ -25,7 +25,7 @@
         <ScrollViewer x:Name="srcGrafica" HorizontalAlignment="Left" Height="328" VerticalAlignment="Top" Width="792" Margin="0,220,0,0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible">
             <Grid>
             <Polyline Stroke="CornflowerBlue" StrokeThickness="2" Name="plnGrafica"/>
-            <Polyline Stroke="HotPink" Name="plnEjex"/>
+            <Polyline Stroke="HotPink" Name="plnEjeX"/>
             </Grid>
         </ScrollViewer>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="187,161,0,0" Width="147" Height="16"><Run Text="F"/><Run Text="recuencia"/><Run Text=" de Muestreo"/></TextBlock>
