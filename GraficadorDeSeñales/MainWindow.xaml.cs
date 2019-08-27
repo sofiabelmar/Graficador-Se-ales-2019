@@ -38,23 +38,44 @@ namespace GraficadorDeSeñales
             SeñalSenoidal señal = new SeñalSenoidal(amplitud, fase, frecuencia);
 
             double periodoMuestreo = 1 / frecuenciaDeMuestreo;
+            double amplitudMaxima = 0.0;
 
             plnGrafica.Points.Clear();
+
             for (double i = tiempoInicial; i <= tiempoFinal; i += periodoMuestreo)
             {
-                plnGrafica.Points.Add(adaptarCoordenadas(i, señal.evaluar(i), tiempoInicial));
+                double valorMuestra = señal.evaluar(i);
+                if (Math.Abs(valorMuestra) > amplitudMaxima)
+                {
+                    amplitudMaxima = Math.Abs(valorMuestra);
+                }
+                Muestra muestra = new Muestra(i, señal.evaluar(i));
+                señal.Muestras.Add(muestra);
+
             }
 
+            foreach (Muestra muestra in señal.Muestras)
+            {
+                plnGrafica.Points.Add(adaptarCoordenadas(muestra.X, muestra.Y, tiempoInicial,amplitudMaxima));
+            }
+
+            lblLimiteSuperior.Text = amplitudMaxima.ToString();
+            lblLmiteInferior.Text = "-"+ amplitudMaxima.ToString();
+
             plnEjeX.Points.Clear();
-            plnEjeX.Points.Add(adaptarCoordenadas(tiempoInicial, 0.0,tiempoInicial));
-            plnEjeX.Points.Add(adaptarCoordenadas(tiempoFinal, 0.0,tiempoInicial));
+            plnEjeX.Points.Add(adaptarCoordenadas(tiempoInicial, 0.0,tiempoInicial,amplitudMaxima));
+            plnEjeX.Points.Add(adaptarCoordenadas(tiempoFinal, 0.0,tiempoInicial,amplitudMaxima));
+
+            plnEjeY.Points.Clear();
+            plnEjeY.Points.Add(adaptarCoordenadas(0.0, amplitudMaxima, tiempoInicial, amplitudMaxima));
+            plnEjeY.Points.Add(adaptarCoordenadas(0.0, -amplitudMaxima, tiempoInicial, amplitudMaxima));
 
         }
 
-        public Point adaptarCoordenadas(double x, double y, double tiempoInicial)
+        public Point adaptarCoordenadas(double x, double y, double tiempoInicial, double amplitudMaxima)
         {
 
-            return new Point((x - tiempoInicial)*srcGrafica.Width, (-1 * ( y * ((srcGrafica.Height/2.0) -25))) + (srcGrafica.Height/2));
+            return new Point((x - tiempoInicial)*srcGrafica.Width, (-1 * ( y * (((srcGrafica.Height/2.0) -25) / amplitudMaxima))) + (srcGrafica.Height/2));
         }
     }
 }
