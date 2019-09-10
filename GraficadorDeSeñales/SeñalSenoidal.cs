@@ -16,9 +16,10 @@ namespace GraficadorDeSeñales
 
         public SeñalSenoidal()
         {
-            Amplitud = 1.0;
-            Fase = 0.0;
-            Frecuencia = 1.0;
+            Fase = Fase;
+            Frecuencia = Frecuencia;
+            Muestras = new List<Muestra>();
+            AmplitudMaxima = 0.0;
         }
 
         public SeñalSenoidal(double amplitud,
@@ -28,7 +29,7 @@ namespace GraficadorDeSeñales
             Fase = fase;
             Frecuencia = frecuencia;
             Muestras = new List<Muestra>();
-            AmplitudMaxima = 0.0;
+            
 
         }
 

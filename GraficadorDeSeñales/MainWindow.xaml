@@ -30,10 +30,11 @@
         <TextBlock x:Name="lblLmiteInferior" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="38,339,0,0" TextAlignment="Right" Width="112" Grid.Row="1"/>
         <TextBlock x:Name="lblLimite_Superior_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="38,199,0,0" TextAlignment="Right" Width="112" Grid.Row="1"/>
 
-        <Grid x:Name="panelConfiguracion" HorizontalAlignment="Left" Height="157" VerticalAlignment="Top" Width="150" Margin="20,58,0,0" Grid.RowSpan="2"/>A
+        <Grid x:Name="panelConfiguracion" HorizontalAlignment="Left" Height="157" VerticalAlignment="Top" Width="150" Margin="20,58,0,0" Grid.RowSpan="2"/>
         <ComboBox x:Name="cbTipoSeñal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Margin="141,25,0,0" SelectedIndex="0" SelectionChanged="CbTipoSeñal_SelectionChanged">
-            <ComboBoxItem>Señal Exponencial</ComboBoxItem>
+            <ComboBoxItem>Señal Parabolica</ComboBoxItem>
             <ComboBoxItem>Señal Senoidal</ComboBoxItem>
+            <ComboBoxItem>Señal Exponencial</ComboBoxItem>
             <ComboBoxItem>Función Signo</ComboBoxItem>
         </ComboBox>
         
