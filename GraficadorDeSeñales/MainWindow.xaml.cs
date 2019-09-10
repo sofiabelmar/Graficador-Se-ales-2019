@@ -35,9 +35,18 @@ namespace GraficadorDeSeñales
             double tiempoFinal = double.Parse(txtTiempoFinal.Text);
             double frecuenciaDeMuestreo = double.Parse(txtFrecuenciaDeMuestreo.Text);
 
-            /* SeñalSenoidal señal = new SeñalSenoidal(amplitud, fase, frecuencia);*/
-            /*SeñalParabolica señal = new SeñalParabolica();*/
-            FuncionSigno señal = new FuncionSigno();
+            Señal señal;
+            switch(cbTipoSeñal.SelectedIndex){
+                case 0:
+                    señal = new SeñalParabolica();
+                    break;
+                case 1:
+                    (ConfiguraciónSeñalSenoidal)(panelConfiguracion.Children[0])
+                    señal = new SeñalSenoidal();
+                    break;
+                default:
+                    break;
+            }
 
             double periodoMuestreo = 1 / frecuenciaDeMuestreo;
             double amplitudMaxima = 0.0;
