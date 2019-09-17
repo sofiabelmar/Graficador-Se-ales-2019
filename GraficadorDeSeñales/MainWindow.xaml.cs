@@ -54,9 +54,22 @@ namespace GraficadorDeSeñales
                         (((ConfiguracionSeñalExponencial)(panelConfiguracion.Children[0])).txtAlpha.Text);
                     señal = new SeñalExponencial(alpha);
                     break;
+                case 3:
+                    string rutaArchivo = ((ConfiguracionAudio)(panelConfiguracion.Children[0])).txtRutaArchivo.Text;
+                    señal = new SeñalAudio(rutaArchivo);
+                    break;
                 default:
                     señal = null;
                     break;
+            }
+
+            if(cbTipoSeñal.SelectedIndex != 2 && señal != null)
+            {
+                señal.TiempoInicial = tiempoFinal;
+                señal.TiempoFinal = tiempoFinal;
+                señal.FrecuenciaMuestreo = frecuenciaDeMuestreo;
+
+                señal.construirSeñal();
             }
 
             señal.TiempoInicial = tiempoInicial;
@@ -104,7 +117,13 @@ namespace GraficadorDeSeñales
                 case 1: //Senoidal
                     panelConfiguracion.Children.Add(new ConfiguraciónSeñalSenoidal());
                     break;
-                case 2: //Audio
+                case 2: //Exponencial
+                    panelConfiguracion.Children.Add(new ConfiguracionSeñalExponencial());
+                    break;
+                case 3:
+                    panelConfiguracion.Children.Add(new ConfiguracionAudio());
+                    break;
+                case 4:
                     panelConfiguracion.Children.Add(new ConfiguracionAudio());
                     break;
                 default:

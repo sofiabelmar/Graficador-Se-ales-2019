@@ -16,6 +16,7 @@ namespace GraficadorDeSeñales
         {
             RutaArchivo = rutaArchivo;
             Muestras = new List<Muestra>();
+            AmplitudMaxima = 0.0;
 
             AudioFileReader reader = new AudioFileReader(rutaArchivo);
 
@@ -24,6 +25,24 @@ namespace GraficadorDeSeñales
             FrecuenciaMuestreo = reader.WaveFormat.SampleRate;
 
             var bufferLectura = new float[reader.WaveFormat.Channels];
+            double instanteActual = 0.0;
+            double periodoMuestreo = 1.0 / FrecuenciaMuestreo;
+            int muestrasLeidas = 0;
+            do
+            {
+                muestrasLeidas = reader.Read(bufferLectura,0,reader.WaveFormat.Channels);
+                if (muestrasLeidas > 0)
+                {
+                    double max =
+                        bufferLectura.Take(muestrasLeidas).Max();
+                    Muestras.Add(new Muestra(instanteActual, max));
+                    if (muestrasLeidas > 0)
+                {
+                    AmplitudMaxima = Math.Abs(max);
+                }
+                }
+                instanteActual += periodoMuestreo;
+            } while (muestrasLeidas > 0);
         }
         public override double evaluar(double tiempo)
         {
