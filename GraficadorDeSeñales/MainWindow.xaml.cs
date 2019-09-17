@@ -104,8 +104,8 @@ namespace GraficadorDeSeñales
                 case 1: //Senoidal
                     panelConfiguracion.Children.Add(new ConfiguraciónSeñalSenoidal());
                     break;
-                case 2: //Exponencial
-                    panelConfiguracion.Children.Add(new ConfiguracionSeñalExponencial());
+                case 2: //Audio
+                    panelConfiguracion.Children.Add(new ConfiguracionAudio());
                     break;
                 default:
                     break;

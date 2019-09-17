@@ -34,7 +34,7 @@
         <ComboBox x:Name="cbTipoSeñal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Margin="141,25,0,0" SelectedIndex="0" SelectionChanged="CbTipoSeñal_SelectionChanged">
             <ComboBoxItem>Señal Parabolica</ComboBoxItem>
             <ComboBoxItem>Señal Senoidal</ComboBoxItem>
-            <ComboBoxItem>Señal Exponencial</ComboBoxItem>
+            <ComboBoxItem>Señal Audio</ComboBoxItem>
             <ComboBoxItem>Función Signo</ComboBoxItem>
         </ComboBox>
         
