@@ -65,8 +65,8 @@
     <Compile Include="ConfiguracionSeñalExponencial.xaml.cs">
       <DependentUpon>ConfiguracionSeñalExponencial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConfiguraciónSeñalSenoidal.xaml.cs">
-      <DependentUpon>ConfiguraciónSeñalSenoidal.xaml</DependentUpon>
+    <Compile Include="ConfiguracionSeñalSenoidal.xaml.cs">
+      <DependentUpon>ConfiguracionSeñalSenoidal.xaml</DependentUpon>
     </Compile>
     <Compile Include="FuncionSigno.cs" />
     <Compile Include="Muestra.cs" />
@@ -74,6 +74,7 @@
     <Compile Include="SeñalAudio.cs" />
     <Compile Include="SeñalExponencial.cs" />
     <Compile Include="SeñalParabolica.cs" />
+    <Compile Include="SeñalResultante.cs" />
     <Compile Include="SeñalSenoidal.cs" />
     <Page Include="ConfiguracionAudio.xaml">
       <SubType>Designer</SubType>
@@ -83,7 +84,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ConfiguraciónSeñalSenoidal.xaml">
+    <Page Include="ConfiguracionSeñalSenoidal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
